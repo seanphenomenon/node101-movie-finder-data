@@ -28,12 +28,13 @@ const values = Object.values(movieId)[0];
 const url = (`http://www.omdbapi.com/?${keys}=${values}+&apikey=3119abb3`);
 
 
-// axios instance used to make get request to URL and verifying previous cache url requests
+// axios instance used for testing and to make get request to URL and verifying previous cache url requests
 if(cache[url]){
     res.send(cache[url])
 } else{
 
 instance.get(url)
+    // if url query is already in cache, cache will send movie data as a response. if not, get request will be made to retrieve movie data and store it into cache history. 
     .then(response => cache[url] = response.data)
     .then(response => res.send(response))
     .catch(err => console.log(err))
