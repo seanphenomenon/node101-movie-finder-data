@@ -25,7 +25,7 @@ const keys = Object.keys(movieId)[0];
 const values = Object.values(movieId)[0];
 
 // target query values in URL 
-const url = (`http://www.omdbapi.com/?${keys}=${values}+&apikey=3119abb3`);
+const url = (`http://www.omdbapi.com/?${keys}=${values}+&${process.env.OMDB_API_KEY}`);
 
 
 // axios instance used for testing and to make get request to URL and verifying previous cache url requests
